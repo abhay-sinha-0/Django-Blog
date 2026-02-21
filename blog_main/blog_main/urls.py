@@ -29,9 +29,12 @@ urlpatterns = [
     path('', views.home, name='home'),
     # path('category/', include('blogs.urls')),
     path('', include('blogs.urls')),
-    path('<slug:slug>/', BlogsViews.blogs, name='blogs'),
+    path('blogs/<slug:slug>/', BlogsViews.blogs, name='blogs'),
     # search endpoint
     path('blogs/search/', BlogsViews.search, name='search'),
+    path('register/',views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Serve static files in development
